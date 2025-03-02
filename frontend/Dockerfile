@@ -10,10 +10,6 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy your .env.production file to the container to use during the build
-# Rename it to .env to be picked up by Vite or your application automatically
-COPY .env .env
-
 # Copy the rest of your frontend application to the Docker container
 COPY . .
 

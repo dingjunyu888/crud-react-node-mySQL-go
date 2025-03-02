@@ -6,7 +6,7 @@ const Books = () => {
 
   const [books, setBooks] = useState([])
 
-  const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8800';
+  const API_BASE_URL = import.meta.env.VITE_APP_BACKEND_URL || 'http://localhost:8800';
 
   useEffect(() => {
     const fetchAllBooks = async () => {

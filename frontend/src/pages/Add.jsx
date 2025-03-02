@@ -17,13 +17,13 @@ const Add = () => {
         setBook(prev => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8800';
+    const API_BASE_URL = import.meta.env.VITE_APP_BACKEND_URL || 'http://localhost:8800';
 
     const handleClick = async e => {
         e.preventDefault()
         try {
-            // await axios.post(`${API_BASE_URL}/books`, book)
-            await axios.post("https://bookstore.junyuding.com/books", book)
+            await axios.post(`${API_BASE_URL}/books`, book)
+            // await axios.post("https://bookstore.junyuding.com/books", book)
             navigate("/")
         } catch (err) {
             console.log(err)

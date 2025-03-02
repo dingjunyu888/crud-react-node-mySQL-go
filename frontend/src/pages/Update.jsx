@@ -24,7 +24,7 @@ const Update = () => {
         setBook(prev => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8800';
+    const API_BASE_URL = import.meta.env.VITE_APP_BACKEND_URL || 'http://localhost:8800';
 
     const handleClick = async e => {
         e.preventDefault()
