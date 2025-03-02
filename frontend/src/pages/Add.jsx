@@ -20,7 +20,8 @@ const Add = () => {
     const handleClick = async e => {
         e.preventDefault()
         try {
-            await axios.post("http://localhost:8800/books", book)
+            const API_URL = process.env.REACT_APP_API_URL || 'https://bookstore.junyuding.com/books';
+            await axios.post(API_URL, book)
             navigate("/")
         } catch (err) {
             console.log(err)

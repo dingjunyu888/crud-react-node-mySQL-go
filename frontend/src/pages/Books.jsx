@@ -9,7 +9,8 @@ const Books = () => {
   useEffect(() => {
     const fetchAllBooks = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/books")
+        const API_URL = process.env.REACT_APP_API_URL || 'https://bookstore.junyuding.com/books';
+        const res = await axios.get(API_URL)
         setBooks(res.data)
         console.log(res)
       } catch (err) {
@@ -22,7 +23,8 @@ const Books = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete("http://localhost:8800/books/" + id)
+      const API_URL = process.env.REACT_APP_API_URL || 'https://bookstore.junyuding.com/books';
+      await axios.delete(API_URL + id)
       window.location.reload()
     } catch (err) {
       console.log(err)
