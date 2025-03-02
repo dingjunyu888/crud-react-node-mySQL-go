@@ -10,6 +10,9 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+# Install MySQL client
+RUN apt-get update && apt-get install -y default-mysql-client
+
 # Copy the rest of your backend application to the Docker container
 COPY . .
 

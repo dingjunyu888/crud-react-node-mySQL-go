@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     image: mariadb:10.6
-    platform: linux/arm64/v8
+    # platform: linux/amd64/v8
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: test
@@ -12,7 +12,12 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql # Initialization script
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   backend:
     build:
@@ -25,7 +30,8 @@ services:
       DB_PASSWORD: password
       DB_NAME: test
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   frontend:
     environment:
