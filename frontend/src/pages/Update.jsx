@@ -24,11 +24,12 @@ const Update = () => {
         setBook(prev => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
+    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8800';
+
     const handleClick = async e => {
         e.preventDefault()
         try {
-            const API_URL = process.env.REACT_APP_API_URL || 'https://bookstore.junyuding.com/books';
-            await axios.put(API_URL + bookID, book)
+            await axios.put(`${API_BASE_URL}/books` + bookID, book)
             navigate("/")
         } catch (err) {
             console.log(err)
