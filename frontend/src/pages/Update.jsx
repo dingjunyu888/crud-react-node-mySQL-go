@@ -29,8 +29,8 @@ const Update = () => {
     const handleClick = async e => {
         e.preventDefault()
         try {
-            // await axios.put(`${API_BASE_URL}/books` + bookID, book)
-            await axios.put("https://bookstore.junyuding.com/books" + bookID, book)
+            await axios.put(`${API_BASE_URL}/books` + bookID, book)
+            // await axios.put("https://bookstore.junyuding.com/books" + bookID, book)
             navigate("/")
         } catch (err) {
             console.log(err)

@@ -25,8 +25,8 @@ const Books = () => {
 
   const handleDelete = async (id) => {
     try {
-      // await axios.delete(`${API_BASE_URL}/books` + id)
-      await axios.delete("https://bookstore.junyuding.com/books" + id)
+      await axios.delete(`${API_BASE_URL}/books` + id)
+      // await axios.delete("https://bookstore.junyuding.com/books" + id)
       window.location.reload()
     } catch (err) {
       console.log(err)
