@@ -20,4 +20,5 @@ RUN npm run build
 EXPOSE 5173
 
 # Command to start Vite for development
-CMD ["npm", "run", "dev"]
+# CMD ["npm", "run", "dev"]
+CMD ["npx", "serve", "-s", "dist", "-l", "3000"]
