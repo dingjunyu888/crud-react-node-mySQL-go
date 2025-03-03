@@ -4,6 +4,12 @@ FROM node:16
 # Set the working directory in the Docker container
 WORKDIR /app
 
+# Argument for backend URL
+ARG VITE_APP_BACKEND_URL
+
+# Set the environment variable
+ENV VITE_APP_BACKEND_URL $VITE_APP_BACKEND_URL
+
 # Copy the package.json and package-lock.json files
 COPY package*.json ./
 
