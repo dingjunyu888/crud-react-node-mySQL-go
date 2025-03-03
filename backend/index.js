@@ -5,9 +5,9 @@ import cors from "cors"
 const app = express();
 
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || "localhost",      // Use environment variable for the host
-  user: process.env.DB_USER || "root",      // Use environment variable for the user
-  password: process.env.DB_PASS || "",  // Use environment variable for the password
+  host: process.env.DB_HOST || "db",      // Use environment variable for the host
+  user: process.env.DB_USER || "user",      // Use environment variable for the user
+  password: process.env.DB_PASS || "password",  // Use environment variable for the password
   database: process.env.DB_NAME || "test"  // Use environment variable for the database name
 })
 
